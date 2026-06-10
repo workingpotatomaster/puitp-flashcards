@@ -98,6 +98,55 @@
 }
 
 /* -----------------------------------------------
+   Illustrated mode (.illustrated)
+----------------------------------------------- */
+.illustrated {
+  --bg: #f5f0eb;
+  --surface: rgba(255,255,255,0.85);
+  --surface-subtle: rgba(248,245,240,0.9);
+  --border: rgba(180,160,140,0.3);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent: #4f46e5;
+  --accent-bg: #eef2ff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 8px 24px rgba(0,0,0,0.05);
+
+  --btn-know-bg: #f0fdf4;
+  --btn-know-border: #86efac;
+  --btn-know-text: #16a34a;
+
+  --btn-repeat-bg: #fff7ed;
+  --btn-repeat-border: #fed7aa;
+  --btn-repeat-text: #ea580c;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-subtle);
+  --color-surface-highlight: var(--border);
+  --color-border: var(--border);
+  --color-border-subtle: var(--surface-subtle);
+  --color-indigo: var(--accent);
+  --color-indigo-light: var(--accent-bg);
+  --color-indigo-text: #4338ca;
+  --color-green: #16a34a;
+  --color-green-light: #f0fdf4;
+  --color-green-border: #86efac;
+  --color-green-text: #16a34a;
+  --color-amber: #ea580c;
+  --color-amber-light: #fff7ed;
+  --color-amber-border: #fed7aa;
+  --color-amber-text: #ea580c;
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --radius-card: 16px;
+  --shadow-card: var(--shadow);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+
+/* -----------------------------------------------
    Base reset & typography
 ----------------------------------------------- */
 *, *::before, *::after {
@@ -115,7 +164,11 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   min-height: 100vh;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.3s ease, color 0.2s ease;
+}
+
+html.illustrated body {
+  background: linear-gradient(135deg, #f5f0eb 0%, #ede8f0 50%, #eaf0f5 100%);
 }
 
 /* -----------------------------------------------
@@ -180,6 +233,21 @@ body {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
   transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* -----------------------------------------------
+   Illustrated mode — glass cards
+----------------------------------------------- */
+html.illustrated .card-surface-front {
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html.illustrated .card-surface-back {
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* -----------------------------------------------
