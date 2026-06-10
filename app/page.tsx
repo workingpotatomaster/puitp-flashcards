@@ -163,9 +163,47 @@ export default function Home() {
           })}
         </div>
 
+        {/* Summary section */}
+        <div className="mt-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span
+              className="text-xs font-semibold uppercase tracking-widest"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Materiały
+            </span>
+            <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+          </div>
+
+          <a
+            href="/podsumowanie.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="category-card flex items-center gap-4 px-5 py-4"
+            style={{
+              textDecoration: "none",
+              borderLeft: "3px solid #f59e0b",
+            }}
+          >
+            <span className="text-lg flex-shrink-0">📄</span>
+            <div className="flex-1">
+              <span
+                className="text-sm font-medium block"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Podsumowanie materiałów
+              </span>
+              <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+                Wszystkie 4 wykłady · otwiera się w nowej karcie · Ctrl+P → PDF
+              </span>
+            </div>
+            <span className="text-sm flex-shrink-0" style={{ color: "var(--text-muted)" }}>↗</span>
+          </a>
+        </div>
+
         {/* Footer hint */}
         <p
-          className="text-center text-xs mt-10"
+          className="text-center text-xs mt-8"
           style={{ color: "var(--text-muted)" }}
         >
           Kliknij kartę, aby odsłonić odpowiedź · Oceniaj swoją wiedzę po każdej fiszce

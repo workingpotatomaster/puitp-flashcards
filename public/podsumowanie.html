@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUiTP – Podsumowanie materiałów egzaminacyjnych</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: #1a1a2e;
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  /* Cover */
+  .cover {
+    text-align: center;
+    padding: 60px 0 50px;
+    border-bottom: 3px solid #4f46e5;
+    margin-bottom: 48px;
+  }
+  .cover .subtitle {
+    font-size: 12pt;
+    color: #6b7280;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-size: 28pt;
+    font-weight: bold;
+    color: #1a1a2e;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .cover .meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-top: 20px;
+  }
+  .cover .meta span {
+    display: inline-block;
+    margin: 0 12px;
+  }
+
+  /* TOC */
+  .toc {
+    background: #f8f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px 32px;
+    margin-bottom: 48px;
+  }
+  .toc h2 {
+    font-size: 12pt;
+    color: #4f46e5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .toc ol {
+    padding-left: 20px;
+  }
+  .toc li {
+    margin-bottom: 5px;
+    font-size: 10.5pt;
+  }
+  .toc li a {
+    color: #1a1a2e;
+    text-decoration: none;
+  }
+  .toc li a:hover { color: #4f46e5; }
+  .toc .toc-source {
+    color: #94a3b8;
+    font-size: 9pt;
+    margin-left: 6px;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 52px;
+    page-break-inside: avoid;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: sans-serif;
+    flex-shrink: 0;
+  }
+  .section h2 {
+    font-size: 15pt;
+    color: #1a1a2e;
+    font-family: sans-serif;
+  }
+  .source-badge {
+    margin-left: auto;
+    font-size: 8.5pt;
+    color: #4f46e5;
+    background: #eef2ff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    white-space: nowrap;
+  }
+
+  /* Subsections */
+  h3 {
+    font-size: 11.5pt;
+    color: #374151;
+    font-family: sans-serif;
+    margin: 20px 0 8px;
+    padding-left: 10px;
+    border-left: 3px solid #818cf8;
+  }
+
+  p { margin-bottom: 10px; }
+
+  /* Definition boxes */
+  .def-box {
+    background: #f8f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0 14px;
+    font-size: 10.5pt;
+  }
+  .def-box strong {
+    color: #4f46e5;
+    font-family: sans-serif;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Key concept highlight */
+  .key {
+    background: #eef2ff;
+    border-left: 3px solid #4f46e5;
+    padding: 10px 16px;
+    margin: 12px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 10.5pt;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px;
+    font-size: 10.5pt;
+  }
+  th {
+    background: #4f46e5;
+    color: white;
+    font-family: sans-serif;
+    font-size: 9.5pt;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f8f9fc; }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 22px;
+    margin: 8px 0 12px;
+  }
+  li { margin-bottom: 5px; font-size: 10.5pt; }
+  li strong { color: #374151; }
+
+  /* Steps */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .steps li::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: white;
+    font-size: 9pt;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+
+  /* ABC diagram */
+  .abc-flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0;
+    flex-wrap: wrap;
+  }
+  .abc-box {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 90px;
+    font-family: sans-serif;
+  }
+  .abc-box .letter {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #4f46e5;
+    display: block;
+  }
+  .abc-box .label {
+    font-size: 8pt;
+    color: #6b7280;
+  }
+  .abc-arrow {
+    font-size: 18pt;
+    color: #818cf8;
+  }
+
+  /* Warning / Note box */
+  .note {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 10pt;
+    margin: 10px 0;
+  }
+  .note::before { content: "⚡ "; }
+
+  /* Grid for 2-col */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 12px 0;
+  }
+  .grid-card {
+    background: #f8f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 10pt;
+  }
+  .grid-card strong {
+    display: block;
+    color: #4f46e5;
+    font-family: sans-serif;
+    font-size: 10.5pt;
+    margin-bottom: 6px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { padding: 20px 28px; font-size: 10pt; }
+    .cover { padding: 40px 0 36px; }
+    .section { page-break-inside: avoid; }
+    h2, h3 { page-break-after: avoid; }
+    .def-box, .key, .grid-2, table { page-break-inside: avoid; }
+    a { text-decoration: none; color: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <p class="subtitle">Notatki egzaminacyjne · Uniwersytet VIZJA</p>
+  <h1>Podstawowe Umiejętności<br>i Techniki Psychoterapeutyczne</h1>
+  <p style="color:#6b7280; font-size:11pt; margin-top:14px;">dr Izabela Kamierczak · Centrum Terapii DIALOG</p>
+  <div class="meta">
+    <span>📄 4 wykłady</span>
+    <span>🧠 CBT · ACT · Aktywne słuchanie</span>
+    <span>📅 2025/2026</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>Spis treści</h2>
+  <ol>
+    <li><a href="#s1">Techniki aktywnego słuchania</a> <span class="toc-source">PDF 1</span></li>
+    <li><a href="#s2">Regulacja emocji i technika uwalniania</a> <span class="toc-source">PDF 1</span></li>
+    <li><a href="#s3">Podstawy CBT – model ABC i zniekształcenia poznawcze</a> <span class="toc-source">PDF 2</span></li>
+    <li><a href="#s4">ACT – Terapia Akceptacji i Zaangażowania</a> <span class="toc-source">PDF 2</span></li>
+    <li><a href="#s5">Cele terapii i współpraca z klientem</a> <span class="toc-source">PDF 3</span></li>
+    <li><a href="#s6">Konceptualizacja CBT</a> <span class="toc-source">PDF 3</span></li>
+    <li><a href="#s7">Techniki behawioralne</a> <span class="toc-source">PDF 4</span></li>
+  </ol>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <span class="section-num">1</span>
+    <h2>Techniki aktywnego słuchania</h2>
+    <span class="source-badge">PDF 1</span>
+  </div>
+
+  <p>Aktywne słuchanie to zestaw interwencji werbalnych budujących relację terapeutyczną. Ich celem jest sygnalizowanie zrozumienia, pogłębianie wypowiedzi klienta i praca z emocjami.</p>
+
+  <h3>Elementy kontaktu / relacji terapeutycznej</h3>
+  <ul>
+    <li>Komunikaty sygnalizujące zainteresowanie i zrozumienie</li>
+    <li>Akceptacja sposobu emocjonalnego przeżywania sytuacji przez klienta</li>
+    <li>Utrzymywanie kontaktu wzrokowego</li>
+    <li>Adekwatna ilość interwencji werbalnych</li>
+  </ul>
+
+  <h3>5 typów interwencji werbalnych</h3>
+  <table>
+    <tr>
+      <th style="width:22%">Typ</th>
+      <th style="width:42%">Definicja</th>
+      <th>Przykład</th>
+    </tr>
+    <tr>
+      <td><strong>Minimalna reakcja werbalna</strong></td>
+      <td>Zachęca do kontynuowania, potwierdza uwagę skierowaną na rozmówcę</td>
+      <td><em>mmm, mh, rozumiem, tak...</em></td>
+    </tr>
+    <tr>
+      <td><strong>Prośba o rozwinięcie tematu</strong></td>
+      <td>Pogłębia omawiany wątek, mało zagrażająca, zachęca do kontynuowania</td>
+      <td><em>„Proszę mi coś więcej opowiedzieć na temat..."</em></td>
+    </tr>
+    <tr>
+      <td><strong>Parafraza</strong></td>
+      <td>Odtworzenie myśli i uczuć rozmówcy własnymi słowami; weryfikuje rozumienie. Nie naśladuj, nie powtarzaj dokładnych sformułowań</td>
+      <td><em>„Ważne dla Ciebie jest...", „Myślisz...", „Uważasz..."</em></td>
+    </tr>
+    <tr>
+      <td><strong>Klaryfikacja</strong></td>
+      <td>Sygnalizowanie braku pełnego rozumienia; zwiększa precyzję; wyjaśnia niejasności</td>
+      <td><em>„Co masz na myśli mówiąc, że...?"</em></td>
+    </tr>
+    <tr>
+      <td><strong>Odzwierciedlenie</strong></td>
+      <td>Komunikowanie zrozumienia dla emocjonalnych reakcji; koncentruje uwagę na uczuciach; zachęca do wyrażania emocji</td>
+      <td><em>„To musiało być dla Ciebie trudne."</em></td>
+    </tr>
+  </table>
+
+  <div class="key">
+    <strong>Kluczowa różnica:</strong> Parafraza odnosi się do <em>treści</em> (myśli, fakty) wypowiedzi. Odzwierciedlenie odnosi się do <em>emocji</em> zawartych w wypowiedzi lub jej towarzyszących.
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <span class="section-num">2</span>
+    <h2>Regulacja emocji i technika uwalniania</h2>
+    <span class="source-badge">PDF 1</span>
+  </div>
+
+  <h3>8 emocji podstawowych i ich funkcje</h3>
+  <table>
+    <tr><th>Emocja</th><th>Funkcja / sygnał</th></tr>
+    <tr><td><strong>Złość</strong></td><td>Naruszenie granic – spotykamy przeszkodę na czymś ważnym</td></tr>
+    <tr><td><strong>Strach</strong></td><td>Zagrożenie – pobudza do ucieczki lub ochrony</td></tr>
+    <tr><td><strong>Smutek</strong></td><td>Strata – skłania do wycofania i refleksji</td></tr>
+    <tr><td><strong>Radość</strong></td><td>Zaspokojenie potrzeb – motywuje do powtarzania działań</td></tr>
+    <tr><td><strong>Zainteresowanie</strong></td><td>Ciekawość – popycha do eksploracji</td></tr>
+    <tr><td><strong>Wstręt</strong></td><td>Ochrona – chroni przed tym, co może zaszkodzić</td></tr>
+    <tr><td><strong>Pogarda</strong></td><td>Naruszenie wartości lub norm</td></tr>
+    <tr><td><strong>Zaskoczenie</strong></td><td>Coś nowego / nieoczekiwanego – zwiększa czujność</td></tr>
+  </table>
+
+  <div class="key">
+    Każda emocja to „list" informujący o nas i o tym, co dla nas ważne. Zdrowa regulacja = otworzyć, przeczytać i zareagować w sposób zaspokajający potrzebę, bez krzywdzenia siebie ani innych.
+  </div>
+
+  <h3>Technika uwalniania emocji – David R. Hawkins (Letting Go)</h3>
+  <p>Zamiast tłumić lub wybuchać – pozwolić emocji przepłynąć. Podobieństwo do mindfulness: akceptacja, obserwacja bez oceny, redukcja oporu.</p>
+  <ol class="steps">
+    <li>Zauważ emocję w ciele (napięcie, szybkie bicie serca, ścisk)</li>
+    <li>Pozwól jej być – nie próbuj jej eliminować</li>
+    <li>Oddychaj spokojnie, rozluźniaj ciało</li>
+    <li>Obserwuj, aż emocja naturalnie opadnie</li>
+  </ol>
+
+  <h3>Tłumienie złości – błędne koło</h3>
+  <div class="def-box">
+    <strong>Mechanizm (badania Kamierczak i in., 2026)</strong>
+    Tłumienie złości → samoobwinianie → frustracja podstawowych potrzeb psychologicznych → symptomy depresji → jeszcze więcej tłumionej złości → błędne koło.
+    <br><br>
+    <strong>Ważne:</strong> Nawet nadmierne spostrzeganie złości w otoczeniu może <em>chronić</em> przed depresją, jeśli nie reagujemy automatycznym samoobwinianiem (zachowujemy dystans obserwatora).
+  </div>
+
+  <div class="note">
+    Czym różni się tłumienie złości od jej regulacji? Tłumienie blokuje emocję – nie znika, zmienia formę lub narasta. Regulacja = rozpoznać, przeżyć, wyrazić adekwatnie do potrzeby.
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <span class="section-num">3</span>
+    <h2>Podstawy CBT – model ABC i zniekształcenia poznawcze</h2>
+    <span class="source-badge">PDF 2</span>
+  </div>
+
+  <div class="key">
+    <strong>Podstawowe założenie CBT:</strong> Nie sytuacja sama w sobie, ale jej <em>interpretacja</em> (myśl) wpływa na emocje i zachowanie.
+  </div>
+
+  <h3>Model ABC – Albert Ellis</h3>
+  <div class="abc-flow">
+    <div class="abc-box">
+      <span class="letter">A</span>
+      <span class="label">Activating Event<br>Wydarzenie aktywujące</span>
+    </div>
+    <span class="abc-arrow">→</span>
+    <div class="abc-box">
+      <span class="letter">B</span>
+      <span class="label">Beliefs<br>Przekonania / myśli</span>
+    </div>
+    <span class="abc-arrow">→</span>
+    <div class="abc-box">
+      <span class="letter">C</span>
+      <span class="label">Consequences<br>Emocje i zachowania</span>
+    </div>
+  </div>
+  <p><strong>Zadanie terapeutyczne:</strong> zastąpienie myśli B inną, bardziej adaptacyjną, i obserwacja nowych konsekwencji C.</p>
+
+  <h3>3 poziomy poznawcze w CBT</h3>
+  <ol>
+    <li><strong>Myśli automatyczne</strong> – szybkie, spontaniczne interpretacje sytuacji (powierzchniowy poziom)</li>
+    <li><strong>Przekonania pośrednie</strong> – reguły i założenia warunkowe, np. <em>„Jeśli nie jestem perfekcyjna, to zawiodłam"</em></li>
+    <li><strong>Przekonania kluczowe (core beliefs)</strong> – głębokie, stabilne przekonania o sobie, świecie i innych, często ukształtowane w dzieciństwie. Przykłady: <em>„Jestem niekompetentna", „Inni mnie odrzucą", „Świat jest niebezpieczny"</em></li>
+  </ol>
+
+  <h3>Zniekształcenia poznawcze</h3>
+  <div class="grid-2">
+    <div class="grid-card">
+      <strong>Katastrofizacja</strong>
+      Zakładanie najgorszego możliwego scenariusza bez podstaw.
+    </div>
+    <div class="grid-card">
+      <strong>Myślenie czarno-białe</strong>
+      Postrzeganie sytuacji w skrajnościach – wszystko albo nic, bez odcieni szarości.
+    </div>
+    <div class="grid-card">
+      <strong>Czytanie w myślach</strong>
+      Zakładanie, co inni myślą, bez weryfikacji.
+    </div>
+    <div class="grid-card">
+      <strong>Selektywna uwaga</strong>
+      Skupianie się wyłącznie na negatywnych informacjach, ignorowanie pozytywnych.
+    </div>
+    <div class="grid-card">
+      <strong>Nadgeneralizacja</strong>
+      Jeden incydent = reguła ogólna (np. „Zawsze mi to nie wychodzi").
+    </div>
+    <div class="grid-card">
+      <strong>Błędne koło CBT</strong>
+      Zniekształcone myśli → unikanie → zachowania zabezpieczające → brak korekty doświadczeniem → podtrzymanie zniekształceń.
+    </div>
+  </div>
+
+  <h3>Model zmiany w CBT (3 drogi)</h3>
+  <ol>
+    <li><strong>Restrukturyzacja poznawcza</strong> – identyfikacja i zamiana zniekształconych myśli na bardziej realistyczne</li>
+    <li><strong>Eksperymenty behawioralne</strong> – testowanie przekonań w praktyce (→ szczegóły w sekcji 7)</li>
+    <li><strong>Ekspozycja</strong> – konfrontacja z unikanym bodźcem (→ szczegóły w sekcji 7)</li>
+  </ol>
+
+  <div class="note">
+    Zachowanie w CBT: unikanie utrwala lęk; ekspozycja go osłabia. Nowe doświadczenia korygują przekonania. CBT opiera się na warunkowaniu klasycznym (reakcje emocjonalne) i sprawczym (wzmocnienia/kary).
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <span class="section-num">4</span>
+    <h2>ACT – Terapia Akceptacji i Zaangażowania</h2>
+    <span class="source-badge">PDF 2</span>
+  </div>
+
+  <div class="key">
+    <strong>Przesunięcie paradygmatu:</strong> Z modelu „redukuj objawy, eliminuj lęk, zmieniaj myśli" na „zwiększ psychologiczną elastyczność, nawet jeśli objawy pozostają".<br>
+    Pytanie CBT: <em>„Czy ta myśl jest prawdziwa?"</em> → Pytanie ACT: <em>„Czy ta relacja z myślą pomaga mi żyć wartościowo?"</em>
+  </div>
+
+  <h3>Paradoks unikania</h3>
+  <p>Im bardziej unikamy emocji, tym silniejsze się stają. Cierpienie nie wynika z tego, <em>co czujemy</em>, lecz z prób <em>kontroli</em> tego, co czujemy – kosztem życia zgodnego z wartościami.</p>
+
+  <h3>Czteropolówka ACT</h3>
+  <table>
+    <tr>
+      <th></th>
+      <th>Zachowanie: unikanie / „OD" (kontrola awersyjna)</th>
+      <th>Zachowanie: działanie ku wartościom / „DO" (kontrola apetytywna)</th>
+    </tr>
+    <tr>
+      <td><strong>Wewnętrzne doświadczenia (TIMES)</strong></td>
+      <td>Co pojawia się, co wchodzi w drogę?<br><em>Myśli, obrazy, wspomnienia, emocje, doznania z ciała</em></td>
+      <td>Co jest dla mnie ważne w tej sytuacji?<br><em>Wartości, kim chcę być</em></td>
+    </tr>
+    <tr>
+      <td><strong>Zachowania</strong></td>
+      <td>Co robię, gdy pojawia się dyskomfort?<br><em>Unikam, odkładam, uciekam</em></td>
+      <td>Co robię, zmierzając ku temu, co ważne?<br><em>Działania zgodne z wartościami</em></td>
+    </tr>
+  </table>
+
+  <h3>TIMES – doświadczenia wewnętrzne</h3>
+  <p>Akronim opisujący treści, które mogą utrudniać działanie zgodne z wartościami:</p>
+  <ul>
+    <li><strong>T</strong> – Thoughts (myśli)</li>
+    <li><strong>I</strong> – Images (obrazy wyobrażeniowe)</li>
+    <li><strong>M</strong> – Memories (wspomnienia)</li>
+    <li><strong>E</strong> – Emotions (emocje)</li>
+    <li><strong>S</strong> – Sensations (doznania z ciała)</li>
+  </ul>
+
+  <h3>TIMES jako technika przejścia „od" → „ku"</h3>
+  <ul>
+    <li><strong>T</strong> – Toward move: konkretny mały ruch ku wartościom</li>
+    <li><strong>I</strong> – Important: co jest ważne w tej sytuacji?</li>
+    <li><strong>M</strong> – Mindful: czy mogę to zrobić uważnie?</li>
+    <li><strong>E</strong> – Effective: czy to działa w długiej perspektywie?</li>
+    <li><strong>S</strong> – Small/Specific: czy krok jest wystarczająco mały i konkretny?</li>
+  </ul>
+
+  <h3>Wartości w ACT</h3>
+  <ul>
+    <li>Odzwierciedlają pragnienia, nie wymagania</li>
+    <li>Są osobiste – nie z oczekiwań innych</li>
+    <li>Wyznaczają <em>kierunek</em>, nie punkt końcowy (w odróżnieniu od celów)</li>
+    <li>Są zawsze dostępne w teraźniejszości – można je realizować już teraz</li>
+  </ul>
+
+  <h3>Kontrola awersyjna vs apetytywna</h3>
+  <div class="grid-2">
+    <div class="grid-card">
+      <strong>Awersyjna (unikanie)</strong>
+      Zachowanie ukierunkowane na oddalenie się od nieprzyjemnego. Motywacja: ulga, ucieczka od bodźca.
+    </div>
+    <div class="grid-card">
+      <strong>Apetytywna (wartości)</strong>
+      Zachowanie ukierunkowane ku temu, co pożądane i ważne. Motywacja: zbliżanie się do wartości i celów.
+    </div>
+  </div>
+
+  <h3>Ja obserwujące</h3>
+  <p>Perspektywa obserwatora – „helicopter view". Kontakt z chwilą obecną. Oddzielenie od treści: nie utożsamiam się z myślami, emocjami ani wspomnieniami. Pozwala obserwować bez oceniania.</p>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <span class="section-num">5</span>
+    <h2>Cele terapii i współpraca z klientem</h2>
+    <span class="source-badge">PDF 3</span>
+  </div>
+
+  <div class="key">
+    <strong>„Nie ma C, nie ma terapii"</strong> – zanim zaczniemy pracę terapeutyczną, klient musi mieć zidentyfikowaną konsekwencję (C w modelu ABC) stanowiącą rzeczywisty problem i motywację do zmiany.
+  </div>
+
+  <h3>4 kroki: od skargi do celu terapeutycznego</h3>
+  <ol class="steps">
+    <li><strong>Zapisz skargę pacjenta jego słowami</strong> – zidentyfikuj C (co konkretnie jest problemem?)</li>
+    <li><strong>Znajdź ukrytą potrzebę</strong> – użyj klaryfikacji, pytania o cud lub pytania o przełomową sytuację</li>
+    <li><strong>Zamień „nie chcę X" na „chcę potrafić Y"</strong> – cel musi być pozytywny, opisywać obecność czegoś, nie brak</li>
+    <li><strong>Uczyń cel konkretnym</strong> – kiedy, gdzie, po czym widać zmianę? (np. „...szczególnie w pracy i relacjach rodzinnych")</li>
+  </ol>
+
+  <h3>Techniki ustalania ukrytej potrzeby</h3>
+  <div class="grid-2">
+    <div class="grid-card">
+      <strong>Pytanie o cud</strong>
+      „Proszę sobie wyobrazić, że problem zniknął. Co byłoby wówczas możliwe?" / „Czego chciał/a/by Pan/i zamiast tego?"
+    </div>
+    <div class="grid-card">
+      <strong>Pytanie o przełomową sytuację</strong>
+      „Co skłoniło Pana/Panią do zgłoszenia się właśnie teraz?" → ujawnia bodziec wyzwalający (A) i aktualną motywację
+    </div>
+  </div>
+
+  <h3>Kryteria dobrego celu terapeutycznego</h3>
+  <ul>
+    <li><strong>Pozytywny</strong> – opisuje obecność czegoś, nie brak</li>
+    <li><strong>Możliwy do obserwacji</strong> – konkretne, mierzalne zachowanie</li>
+    <li><strong>Konkretny</strong> – kiedy, gdzie, po czym widać zmianę</li>
+    <li><strong>Ustalony wspólnie z klientem</strong> – cel nie jest narzucany przez terapeutę</li>
+  </ul>
+
+  <h3>Przykłady zamiany skargi na cel</h3>
+  <table>
+    <tr><th>Skarga pacjenta</th><th>Cel terapeutyczny</th></tr>
+    <tr><td>„Ciągle się stresuję"</td><td>„Chcę lepiej regulować napięcie w trudnych sytuacjach"</td></tr>
+    <tr><td>„Nie umiem odmawiać"</td><td>„Chcę komunikować granice spokojnie i bez poczucia winy"</td></tr>
+    <tr><td>„Mam niską samoocenę"</td><td>„Chcę budować bardziej realistyczny i życzliwy obraz siebie"</td></tr>
+    <tr><td>„Boję się ludzi"</td><td>„Chcę czuć się swobodniej w kontaktach społecznych"</td></tr>
+    <tr><td>„Nie mogę przestać myśleć o ex"</td><td>„Chcę odzyskać emocjonalną równowagę i skupić się na swoim życiu"</td></tr>
+  </table>
+
+  <h3>Skalowanie celów</h3>
+  <p>Ocena realizacji celu na skali <strong>1–10</strong>. Służy do: mierzenia postępów, ustalenia punktu wyjścia, monitorowania zmian między sesjami.</p>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <span class="section-num">6</span>
+    <h2>Konceptualizacja CBT</h2>
+    <span class="source-badge">PDF 3</span>
+  </div>
+
+  <p>Konceptualizacja to wspólne z klientem zrozumienie, jak i dlaczego jego problem powstał i się utrzymuje. Odbywa się w dwóch stopniach.</p>
+
+  <div class="grid-2">
+    <div class="grid-card">
+      <strong>1. stopień – JAK? (ABC)</strong>
+      Testowanie hipotez o tym, jak problem funkcjonuje: typowe automatyczne myśli (B), emocje i zachowania (C) w konkretnych sytuacjach (A).
+      <br><br>
+      Pytanie: <em>„Proszę opisać ostatnią sytuację dobrze ilustrującą Pani/a problem..."</em>
+    </div>
+    <div class="grid-card">
+      <strong>2. stopień – DLACZEGO? (schematy)</strong>
+      Schematy poznawcze, typowe wzorce reagowania w przeszłości i ich uwarunkowania – historia życia prowadząca do przekonań kluczowych.
+      <br><br>
+      Pytanie: <em>„Czy to, co Pana/Panią spotyka, od dawna stanowi problem? Co mogło wpłynąć na ukształtowanie się takiej wizji siebie?"</em>
+    </div>
+  </div>
+
+  <h3>Lista celów i hierarchia problemów</h3>
+  <p>Po zebraniu danych tworzy się listę problemów klienta z priorytetyzacją. Klient ocenia, które problemy są dla niego najbardziej dotkliwe i na których chce się skupić w pierwszej kolejności.</p>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <span class="section-num">7</span>
+    <h2>Techniki behawioralne</h2>
+    <span class="source-badge">PDF 4</span>
+  </div>
+
+  <p>W CBT techniki behawioralne pomagają zmieniać emocje i myśli <em>poprzez zmianę zachowania</em>.</p>
+
+  <h3>1. Aktywacja behawioralna</h3>
+  <div class="def-box">
+    <strong>Definicja</strong>
+    Stopniowe angażowanie się w działania dające poczucie przyjemności, sensu lub osiągnięcia, mimo obniżonego nastroju lub braku motywacji.<br>
+    <strong>Cel:</strong> przerwanie wycofania i bierności, zwiększenie pozytywnych doświadczeń, odbudowa sprawczości.<br>
+    <strong>Zasada:</strong> motywacja następuje <em>po</em> działaniu, nie przed nim.
+  </div>
+  <p><strong>Mechanizm (błędne koło i jego odwrócenie):</strong></p>
+  <p>🔴 Depresja → wycofanie → mniej nagród i kontaktów → gorszy nastrój → jeszcze większe wycofanie</p>
+  <p>🟢 Aktywacja: małe działania → więcej doświadczeń → poprawa energii/nastroju → większa aktywność</p>
+
+  <h3>2. Eksperymenty behawioralne</h3>
+  <div class="def-box">
+    <strong>Definicja</strong>
+    Celowe sprawdzenie w rzeczywistości, czy dane przekonanie lub przewidywanie jest prawdziwe. Jedna z najbardziej charakterystycznych technik CBT.<br>
+    <strong>Cel:</strong> testowanie przekonań, zbieranie nowych doświadczeń, osłabianie zniekształceń poznawczych.
+  </div>
+  <p><strong>4-krokowa struktura:</strong></p>
+  <ol class="steps">
+    <li>Sformułowanie przekonania/przewidywania (np. „Jeśli się odezwę, wszyscy uznają mnie za głupią")</li>
+    <li>Zaplanowanie eksperymentu (np. zadaj jedno pytanie podczas spotkania)</li>
+    <li>Obserwacja wyniku (co faktycznie się stało?)</li>
+    <li>Wyciągnięcie wniosków (nowe, bardziej adaptacyjne przekonanie)</li>
+  </ol>
+
+  <h3>3. Ekspozycja</h3>
+  <div class="def-box">
+    <strong>Definicja</strong>
+    Stopniowe konfrontowanie się z sytuacjami, bodźcami, emocjami lub myślami, które wywołują lęk i są unikane. Podstawowa technika leczenia zaburzeń lękowych i OCD.<br>
+    <strong>Cel:</strong> zmniejszenie unikania, <strong>habituacja</strong> (oswajanie układu nerwowego), nauczenie mózgu, że sytuacja nie jest tak niebezpieczna, jak przewiduje lęk.
+  </div>
+
+  <table>
+    <tr><th>Rodzaj ekspozycji</th><th>Opis</th><th>Przykład zastosowania</th></tr>
+    <tr>
+      <td><strong>In vivo</strong></td>
+      <td>Konfrontacja w realnej sytuacji</td>
+      <td>Wejście do sklepu przy fobii społecznej</td>
+    </tr>
+    <tr>
+      <td><strong>Wyobrażeniowa</strong></td>
+      <td>Konfrontacja w wyobraźni</td>
+      <td>Wyobrażanie sobie sytuacji lękowej</td>
+    </tr>
+    <tr>
+      <td><strong>Interoceptywna</strong></td>
+      <td>Na objawy z ciała</td>
+      <td>Wywołanie lekkiego przyspieszenia oddechu przy lęku panicznym</td>
+    </tr>
+    <tr>
+      <td><strong>ERP</strong> (Exposure &amp; Response Prevention)</td>
+      <td>Zetknięcie z bodźcem obsesyjnym + powstrzymanie kompulsji</td>
+      <td>Dotknięcie klamki bez wielokrotnego mycia rąk (OCD)</td>
+    </tr>
+  </table>
+
+  <div class="key">
+    <strong>Habituacja</strong> – mechanizm leżący u podstaw ekspozycji. Układ nerwowy oswaja się z bodźcem przez powtarzaną ekspozycję; reakcja lękowa stopniowo się zmniejsza, gdy mózg uczy się, że zagrożenie nie jest tak duże, jak przewidywał lęk.
+  </div>
+
+  <h3>4. Ćwiczenie umiejętności radzenia sobie ze stresem</h3>
+  <p>Uczenie konkretnych strategii regulacji emocji i stresu. Przykłady technik:</p>
+
+  <div class="grid-2">
+    <div class="grid-card">
+      <strong>Oddech 4–6</strong>
+      Wdech przez 4 sekundy → wydech przez 6 sekund. Dłuższy wydech pobudza układ przywspółczulny (relaksacja). Przy silnym stresie i napadach lęku.
+    </div>
+    <div class="grid-card">
+      <strong>Plan STOP</strong>
+      Przy przeciążeniu emocjonalnym:<br>
+      <strong>S</strong> – Zatrzymaj się<br>
+      <strong>T</strong> – Obserwuj (co się dzieje?)<br>
+      <strong>O</strong> – Przeanalizuj (co czuję, myślę?)<br>
+      <strong>P</strong> – Podejmij świadome działanie
+    </div>
+    <div class="grid-card">
+      <strong>Progresywna relaksacja mięśni</strong>
+      Napinanie i rozluźnianie kolejnych grup mięśniowych; redukcja napięcia fizycznego i psychicznego.
+    </div>
+    <div class="grid-card">
+      <strong>Plan alarmowy (przy nawrotach)</strong>
+      Ustalenie z klientem: objawy ostrzegawcze, osoby do kontaktu, konkretne działania ochronne przy nawrocie objawów.
+    </div>
+  </div>
+
+  <h3>Psychoedukacja</h3>
+  <p>Informowanie klientów o mechanizmach ich problemu (np. jak działa lęk paniczny, depresja, błędne koło unikania). Zwiększa motywację i współpracę terapeutyczną, bo klient rozumie, <em>dlaczego</em> dana technika ma pomóc.</p>
+</div>
+
+<!-- Footer -->
+<div style="border-top: 2px solid #e2e8f0; margin-top: 48px; padding-top: 18px; text-align: center; color: #94a3b8; font-size: 9pt; font-family: sans-serif;">
+  Podstawowe Umiejętności i Techniki Psychoterapeutyczne · dr Izabela Kamierczak · Uniwersytet VIZJA · 2025/2026<br>
+  Materiał przygotowany na podstawie 4 wykładów kursu PUiTP
+</div>
+
+</body>
+</html>
