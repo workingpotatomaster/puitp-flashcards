@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
+import BackgroundDecor from "@/components/BackgroundDecor";
 
 export const metadata: Metadata = {
   title: "Fiszki PUiTP",
@@ -12,8 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className="h-full">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="pl" className="h-full" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>
+          <BackgroundDecor />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { categories, getFlashcards, allFlashcards } from "@/lib/flashcards";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const categoryMeta: Record<string, { icon: string; accent: string }> = {
   "Aktywne słuchanie":    { icon: "👂", accent: "#60a5fa" },
@@ -15,7 +16,15 @@ const fallbackMeta = { icon: "📚", accent: "#4f46e5" };
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center min-h-screen px-4 py-14">
+    <main
+      className="flex flex-col items-center min-h-screen px-4 py-14"
+      style={{ position: "relative", zIndex: 1 }}
+    >
+      {/* Theme toggle — top right corner */}
+      <div style={{ position: "fixed", top: "16px", right: "16px", zIndex: 50 }}>
+        <ThemeToggle />
+      </div>
+
       <div className="w-full max-w-xl">
 
         {/* Hero section */}
@@ -24,8 +33,8 @@ export default function Home() {
           <div
             className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5 text-2xl"
             style={{
-              background: "#eef2ff",
-              border: "1px solid #c7d2fe",
+              background: "var(--accent-bg)",
+              border: "1px solid var(--border)",
             }}
           >
             🧠
@@ -33,14 +42,14 @@ export default function Home() {
 
           <h1
             className="text-4xl font-bold mb-3"
-            style={{ color: "#111827", letterSpacing: "-0.02em", lineHeight: 1.15 }}
+            style={{ color: "var(--text-primary)", letterSpacing: "-0.02em", lineHeight: 1.15 }}
           >
             Fiszki PUiTP
           </h1>
 
           <p
             className="text-sm mb-4"
-            style={{ color: "var(--color-text-secondary)" }}
+            style={{ color: "var(--text-secondary)" }}
           >
             Podstawowe Umiejętności i Techniki Psychoterapeutyczne
           </p>
@@ -49,20 +58,20 @@ export default function Home() {
             <span
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
               style={{
-                background: "#eef2ff",
-                border: "1px solid #c7d2fe",
-                color: "#4338ca",
+                background: "var(--accent-bg)",
+                border: "1px solid var(--border)",
+                color: "var(--accent)",
               }}
             >
-              <span style={{ color: "#16a34a" }}>●</span>
+              <span style={{ color: "var(--btn-know-text)" }}>●</span>
               {allFlashcards.length} fiszek
             </span>
             <span
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full"
               style={{
-                background: "var(--color-surface-raised)",
-                border: "1px solid var(--color-border)",
-                color: "var(--color-text-secondary)",
+                background: "var(--surface-subtle)",
+                border: "1px solid var(--border)",
+                color: "var(--text-secondary)",
               }}
             >
               Uniwersytet VIZJA
@@ -94,13 +103,13 @@ export default function Home() {
         <div className="flex items-center gap-3 mt-8 mb-3">
           <span
             className="text-xs font-semibold uppercase tracking-widest"
-            style={{ color: "var(--color-text-muted)" }}
+            style={{ color: "var(--text-muted)" }}
           >
             Wybierz temat
           </span>
           <div
             className="flex-1 h-px"
-            style={{ background: "var(--color-border)" }}
+            style={{ background: "var(--border)" }}
           />
         </div>
 
@@ -126,7 +135,7 @@ export default function Home() {
                 {/* Label */}
                 <span
                   className="flex-1 text-sm font-medium"
-                  style={{ color: "var(--color-text-primary)" }}
+                  style={{ color: "var(--text-primary)" }}
                 >
                   {cat}
                 </span>
@@ -135,8 +144,8 @@ export default function Home() {
                 <span
                   className="text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0"
                   style={{
-                    background: "var(--color-surface-raised)",
-                    color: "var(--color-text-muted)",
+                    background: "var(--surface-subtle)",
+                    color: "var(--text-muted)",
                   }}
                 >
                   {count} fiszek
@@ -145,7 +154,7 @@ export default function Home() {
                 {/* Arrow */}
                 <span
                   className="text-sm flex-shrink-0"
-                  style={{ color: "var(--color-text-muted)" }}
+                  style={{ color: "var(--text-muted)" }}
                 >
                   →
                 </span>
@@ -157,7 +166,7 @@ export default function Home() {
         {/* Footer hint */}
         <p
           className="text-center text-xs mt-10"
-          style={{ color: "var(--color-text-muted)" }}
+          style={{ color: "var(--text-muted)" }}
         >
           Kliknij kartę, aby odsłonić odpowiedź · Oceniaj swoją wiedzę po każdej fiszce
         </p>

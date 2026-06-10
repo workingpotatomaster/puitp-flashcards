@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Flashcard from "@/components/Flashcard";
 import ProgressBar from "@/components/ProgressBar";
+import ThemeToggle from "@/components/ThemeToggle";
 import { getFlashcards, shuffleArray } from "@/lib/flashcards";
 import type { Flashcard as FlashcardType } from "@/lib/flashcards";
 
@@ -78,11 +79,11 @@ export default function QuizClient({ category }: { category: string }) {
     return (
       <div
         className="flex flex-col items-center justify-center min-h-screen gap-3"
-        style={{ color: "var(--color-text-muted)" }}
+        style={{ color: "var(--text-muted)" }}
       >
         <div
           className="w-8 h-8 rounded-full border-2 animate-spin"
-          style={{ borderColor: "#c7d2fe", borderTopColor: "#4f46e5" }}
+          style={{ borderColor: "var(--border)", borderTopColor: "var(--accent)" }}
         />
         <span className="text-sm">Ładowanie...</span>
       </div>
@@ -93,67 +94,30 @@ export default function QuizClient({ category }: { category: string }) {
   const allDone = known === cards.length;
 
   return (
-    <main className="min-h-screen" style={{ background: "var(--color-bg)" }}>
-      {/* ── Mobile header (progress strip) — visible below md ── */}
+    <main
+      className="min-h-screen"
+      style={{ background: "var(--bg)", position: "relative", zIndex: 1 }}
+    >
+      {/* ── Top navigation bar ── */}
       <div
-        className="md:hidden px-4 pt-5 pb-4 sticky top-0 z-10"
+        className="sticky top-0 z-10 px-4 py-3"
         style={{
-          background: "var(--color-bg)",
-          borderBottom: "1px solid var(--color-border)",
+          background: "var(--bg)",
+          borderBottom: "1px solid var(--border)",
         }}
       >
-        {/* Back + category */}
-        <div className="flex items-center justify-between mb-3">
-          <Link
-            href="/"
-            className="flex items-center gap-1.5 text-sm font-medium"
-            style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}
-          >
-            <span
-              className="inline-flex w-6 h-6 items-center justify-center rounded-lg text-xs"
-              style={{
-                background: "var(--color-surface-raised)",
-                border: "1px solid var(--color-border)",
-              }}
-            >
-              ←
-            </span>
-            Powrót
-          </Link>
-          <span
-            className="text-xs font-medium px-3 py-1.5 rounded-full truncate max-w-[180px]"
-            style={{
-              background: "#eef2ff",
-              border: "1px solid #c7d2fe",
-              color: "#4338ca",
-            }}
-          >
-            {category}
-          </span>
-        </div>
-
-        {/* Progress bar */}
-        <ProgressBar current={index + 1} total={cards.length} known={known} />
-      </div>
-
-      {/* ── Two-column desktop layout ── */}
-      <div className="flex md:items-start max-w-5xl mx-auto md:gap-8 md:px-8 md:py-10">
-
-        {/* ── LEFT SIDEBAR (desktop only) ── */}
-        <aside
-          className="hidden md:flex flex-col gap-5 w-64 flex-shrink-0 sticky top-10 self-start"
-        >
+        <div className="max-w-2xl mx-auto flex items-center justify-between gap-3">
           {/* Back link */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-sm font-medium w-fit"
-            style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}
+            className="flex items-center gap-1.5 text-sm font-medium flex-shrink-0"
+            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
           >
             <span
               className="inline-flex w-6 h-6 items-center justify-center rounded-lg text-xs"
               style={{
-                background: "var(--color-surface-raised)",
-                border: "1px solid var(--color-border)",
+                background: "var(--surface-subtle)",
+                border: "1px solid var(--border)",
               }}
             >
               ←
@@ -163,80 +127,47 @@ export default function QuizClient({ category }: { category: string }) {
 
           {/* Category chip */}
           <span
-            className="text-xs font-medium px-3 py-1.5 rounded-full w-fit"
+            className="text-xs font-medium px-3 py-1.5 rounded-full truncate"
             style={{
-              background: "#eef2ff",
-              border: "1px solid #c7d2fe",
-              color: "#4338ca",
+              background: "var(--accent-bg)",
+              border: "1px solid var(--border)",
+              color: "var(--accent)",
+              maxWidth: "200px",
             }}
           >
             {category}
           </span>
 
-          {/* Progress section */}
-          <div
-            className="rounded-xl p-4"
-            style={{
-              background: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
-              boxShadow: "var(--shadow-card)",
-            }}
-          >
-            <ProgressBar current={index + 1} total={cards.length} known={known} />
-          </div>
+          {/* Theme toggle */}
+          <ThemeToggle />
+        </div>
+      </div>
 
-          {/* Navigation buttons */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={() => setIndex((i) => Math.max(0, i - 1))}
-              disabled={index === 0}
-              className="btn-ghost flex items-center gap-2 px-3 py-2.5 text-sm w-full text-left disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <span>←</span>
-              <span>Poprzednia</span>
-            </button>
-            <button
-              onClick={() => setIndex((i) => Math.min(cards.length - 1, i + 1))}
-              disabled={isLast}
-              className="btn-ghost flex items-center gap-2 px-3 py-2.5 text-sm w-full text-left disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <span>Następna</span>
-              <span>→</span>
-            </button>
-          </div>
+      {/* ── Main content — centered single column ── */}
+      <div className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
 
-          {/* Utility buttons */}
-          <div
-            className="flex flex-col gap-1 pt-2"
-            style={{ borderTop: "1px solid var(--color-border)" }}
-          >
-            <button
-              onClick={handleShuffle}
-              className="btn-ghost flex items-center gap-2 px-3 py-2 text-xs w-full text-left"
-            >
-              <span>🔀</span>
-              <span>{shuffled ? "Tasuj ponownie" : "Tasuj"}</span>
-            </button>
-            <button
-              onClick={handleReset}
-              className="btn-ghost flex items-center gap-2 px-3 py-2 text-xs w-full text-left"
-            >
-              <span>↺</span>
-              <span>Reset</span>
-            </button>
-          </div>
-        </aside>
+        {/* Progress bar */}
+        <div
+          className="rounded-xl px-5 py-4"
+          style={{
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
+            boxShadow: "var(--shadow)",
+          }}
+        >
+          <ProgressBar current={index + 1} total={cards.length} known={known} />
+        </div>
 
-        {/* ── RIGHT COLUMN — card area ── */}
-        <div className="flex-1 flex flex-col px-4 py-6 md:px-0 md:py-0">
+        {/* Flashcard area */}
+        <div className="max-w-lg mx-auto w-full">
           {allDone ? (
             /* Completion screen */
             <div
               className="flex flex-col items-center gap-5 py-16 text-center rounded-[16px] px-8"
               style={{
-                background: "var(--color-surface)",
-                border: "1px solid var(--color-border)",
-                boxShadow: "var(--shadow-card)",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow)",
               }}
             >
               <div className="animate-bounce-in text-6xl">🎉</div>
@@ -244,13 +175,13 @@ export default function QuizClient({ category }: { category: string }) {
               <div className="animate-fade-up-delay-1">
                 <h2
                   className="text-2xl font-bold mb-2"
-                  style={{ color: "var(--color-text-primary)", letterSpacing: "-0.02em" }}
+                  style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
                 >
                   Brawo!
                 </h2>
-                <p className="text-base" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="text-base" style={{ color: "var(--text-secondary)" }}>
                   Znasz wszystkie{" "}
-                  <span className="font-semibold" style={{ color: "#16a34a" }}>
+                  <span className="font-semibold" style={{ color: "var(--btn-know-text)" }}>
                     {cards.length}
                   </span>{" "}
                   fiszki z tej kategorii.
@@ -260,12 +191,12 @@ export default function QuizClient({ category }: { category: string }) {
               <div
                 className="animate-fade-up-delay-1 flex items-center gap-3 px-5 py-3 rounded-xl w-full justify-center"
                 style={{
-                  background: "#dcfce7",
-                  border: "1px solid #bbf7d0",
+                  background: "var(--btn-know-bg)",
+                  border: "1px solid var(--btn-know-border)",
                 }}
               >
-                <span className="text-xl" style={{ color: "#16a34a" }}>✓</span>
-                <span className="text-sm font-semibold" style={{ color: "#15803d" }}>
+                <span className="text-xl" style={{ color: "var(--btn-know-text)" }}>✓</span>
+                <span className="text-sm font-semibold" style={{ color: "var(--btn-know-text)" }}>
                   100% ukończone
                 </span>
               </div>
@@ -279,7 +210,6 @@ export default function QuizClient({ category }: { category: string }) {
             </div>
           ) : (
             <>
-              {/* Flashcard */}
               {card && (
                 <Flashcard
                   key={card.id}
@@ -289,50 +219,52 @@ export default function QuizClient({ category }: { category: string }) {
                   status={statuses[card.id] ?? "unknown"}
                 />
               )}
-
-              {/* Mobile bottom navigation */}
-              <div
-                className="md:hidden flex items-center justify-between mt-8 pt-5"
-                style={{ borderTop: "1px solid var(--color-border)" }}
-              >
-                <button
-                  onClick={() => setIndex((i) => Math.max(0, i - 1))}
-                  disabled={index === 0}
-                  className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-sm disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                  <span>←</span>
-                  <span>Poprzednia</span>
-                </button>
-
-                <div className="flex gap-1.5">
-                  <button
-                    onClick={handleShuffle}
-                    className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-xs"
-                  >
-                    <span>🔀</span>
-                    <span>{shuffled ? "Tasuj ponownie" : "Tasuj"}</span>
-                  </button>
-                  <button
-                    onClick={handleReset}
-                    className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-xs"
-                  >
-                    <span>↺</span>
-                    <span>Reset</span>
-                  </button>
-                </div>
-
-                <button
-                  onClick={() => setIndex((i) => Math.min(cards.length - 1, i + 1))}
-                  disabled={isLast}
-                  className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-sm disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                  <span>Następna</span>
-                  <span>→</span>
-                </button>
-              </div>
             </>
           )}
         </div>
+
+        {/* Bottom navigation row */}
+        {!allDone && (
+          <div
+            className="flex items-center justify-between pt-4 max-w-lg mx-auto w-full"
+            style={{ borderTop: "1px solid var(--border)" }}
+          >
+            <button
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              disabled={index === 0}
+              className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-sm disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <span>←</span>
+              <span>Poprzednia</span>
+            </button>
+
+            <div className="flex gap-1.5">
+              <button
+                onClick={handleShuffle}
+                className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-xs"
+              >
+                <span>🔀</span>
+                <span>{shuffled ? "Tasuj ponownie" : "Tasuj"}</span>
+              </button>
+              <button
+                onClick={handleReset}
+                className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-xs"
+              >
+                <span>↺</span>
+                <span>Reset</span>
+              </button>
+            </div>
+
+            <button
+              onClick={() => setIndex((i) => Math.min(cards.length - 1, i + 1))}
+              disabled={isLast}
+              className="btn-ghost flex items-center gap-1.5 px-3 py-2 text-sm disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <span>Następna</span>
+              <span>→</span>
+            </button>
+          </div>
+        )}
       </div>
     </main>
   );

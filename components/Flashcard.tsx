@@ -61,16 +61,16 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
                 <span
                   className="text-xs font-medium px-3 py-1 rounded-full"
                   style={{
-                    background: "#eef2ff",
-                    border: "1px solid #c7d2fe",
-                    color: "#4338ca",
+                    background: "var(--accent-bg)",
+                    border: "1px solid var(--border)",
+                    color: "var(--accent)",
                   }}
                 >
                   {card.category}
                 </span>
                 <span
                   className="text-xs"
-                  style={{ color: "var(--color-text-muted)" }}
+                  style={{ color: "var(--text-muted)" }}
                 >
                   {card.source}
                 </span>
@@ -80,7 +80,7 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
               <p
                 className="text-xl font-semibold leading-snug"
                 style={{
-                  color: "var(--color-text-primary)",
+                  color: "var(--text-primary)",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -90,15 +90,15 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
               {/* Tap hint */}
               <span
                 className="text-xs flex items-center gap-1.5 mt-2"
-                style={{ color: "var(--color-text-muted)" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 <span
                   className="inline-flex w-4 h-4 items-center justify-center rounded"
                   style={{
-                    background: "#eef2ff",
-                    border: "1px solid #c7d2fe",
+                    background: "var(--accent-bg)",
+                    border: "1px solid var(--border)",
                     fontSize: "9px",
-                    color: "#4338ca",
+                    color: "var(--accent)",
                   }}
                 >
                   ↩
@@ -114,7 +114,7 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
               {/* Label */}
               <div
                 className="text-xs font-semibold uppercase tracking-widest mb-4 flex-shrink-0"
-                style={{ color: "#4338ca" }}
+                style={{ color: "var(--accent)" }}
               >
                 Odpowiedź
               </div>
@@ -123,7 +123,7 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
               <p
                 className="text-base leading-relaxed whitespace-pre-line flex-1 text-left"
                 style={{
-                  color: "var(--color-text-primary)",
+                  color: "var(--text-primary)",
                   lineHeight: "1.75",
                 }}
               >
@@ -139,7 +139,7 @@ export default function Flashcard({ card, onKnow, onRepeat, status }: Props) {
       {!flipped && (
         <p
           className="text-xs -mt-2"
-          style={{ color: "var(--color-text-muted)" }}
+          style={{ color: "var(--text-muted)" }}
         >
           Kliknij kartę, aby odsłonić odpowiedź
         </p>

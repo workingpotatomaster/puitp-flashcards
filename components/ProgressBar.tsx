@@ -15,28 +15,28 @@ export default function ProgressBar({ current, total, known }: Props) {
         <div className="flex items-center gap-2">
           <span
             className="text-xs font-semibold tabular-nums"
-            style={{ color: "var(--color-text-secondary)" }}
+            style={{ color: "var(--text-secondary)" }}
           >
             {current}
           </span>
           <span
             className="text-xs"
-            style={{ color: "var(--color-text-muted)" }}
+            style={{ color: "var(--text-muted)" }}
           >
             /
           </span>
           <span
             className="text-xs font-medium tabular-nums"
-            style={{ color: "var(--color-text-muted)" }}
+            style={{ color: "var(--text-muted)" }}
           >
             {total}
           </span>
           <span
             className="text-xs px-2 py-0.5 rounded-full tabular-nums ml-1"
             style={{
-              background: "#eef2ff",
-              border: "1px solid #c7d2fe",
-              color: "#4338ca",
+              background: "var(--accent-bg)",
+              border: "1px solid var(--border)",
+              color: "var(--accent)",
             }}
           >
             {pct}%
@@ -46,20 +46,20 @@ export default function ProgressBar({ current, total, known }: Props) {
         {known > 0 && (
           <div
             className="flex items-center gap-1.5 text-xs font-medium"
-            style={{ color: "#15803d" }}
+            style={{ color: "var(--btn-know-text)" }}
           >
             <span
               className="inline-flex w-4 h-4 items-center justify-center rounded-full text-[10px] font-bold"
               style={{
-                background: "#dcfce7",
-                border: "1px solid #bbf7d0",
-                color: "#16a34a",
+                background: "var(--btn-know-bg)",
+                border: "1px solid var(--btn-know-border)",
+                color: "var(--btn-know-text)",
               }}
             >
               ✓
             </span>
             <span className="tabular-nums">{known} znam</span>
-            <span style={{ color: "var(--color-text-muted)" }}>({knownPct}%)</span>
+            <span style={{ color: "var(--text-muted)" }}>({knownPct}%)</span>
           </div>
         )}
       </div>
@@ -69,7 +69,7 @@ export default function ProgressBar({ current, total, known }: Props) {
         className="w-full rounded-full overflow-hidden"
         style={{
           height: "6px",
-          background: "var(--color-surface-highlight)",
+          background: "var(--surface-subtle)",
         }}
       >
         <div
@@ -84,7 +84,7 @@ export default function ProgressBar({ current, total, known }: Props) {
           className="w-full rounded-full overflow-hidden mt-1.5"
           style={{
             height: "3px",
-            background: "var(--color-surface-highlight)",
+            background: "var(--surface-subtle)",
           }}
         >
           <div

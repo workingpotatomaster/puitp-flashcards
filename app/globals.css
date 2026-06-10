@@ -1,38 +1,100 @@
 @import "tailwindcss";
 
 /* -----------------------------------------------
-   CSS Custom Properties — design tokens (light theme)
+   CSS Custom Properties — Light mode (:root)
 ----------------------------------------------- */
 :root {
-  --color-bg: #f8f9fc;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f3f4f6;
-  --color-surface-highlight: #e5e7eb;
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface-subtle: #f8fafc;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent: #4f46e5;
+  --accent-bg: #eef2ff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 8px 24px rgba(0,0,0,0.05);
 
-  --color-border: #e5e7eb;
-  --color-border-subtle: #f3f4f6;
+  --btn-know-bg: #f0fdf4;
+  --btn-know-border: #86efac;
+  --btn-know-text: #16a34a;
 
-  --color-indigo: #4f46e5;
-  --color-indigo-light: #eef2ff;
+  --btn-repeat-bg: #fff7ed;
+  --btn-repeat-border: #fed7aa;
+  --btn-repeat-text: #ea580c;
+
+  /* Legacy aliases — kept for backward compat with components not yet migrated */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-subtle);
+  --color-surface-highlight: var(--border);
+  --color-border: var(--border);
+  --color-border-subtle: var(--surface-subtle);
+  --color-indigo: var(--accent);
+  --color-indigo-light: var(--accent-bg);
   --color-indigo-text: #4338ca;
-
   --color-green: #16a34a;
-  --color-green-light: #dcfce7;
-  --color-green-border: #bbf7d0;
-  --color-green-text: #15803d;
-
-  --color-amber: #d97706;
-  --color-amber-light: #fef3c7;
-  --color-amber-border: #fde68a;
-  --color-amber-text: #b45309;
-
-  --color-text-primary: #111827;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-
+  --color-green-light: #f0fdf4;
+  --color-green-border: #86efac;
+  --color-green-text: #16a34a;
+  --color-amber: #ea580c;
+  --color-amber-light: #fff7ed;
+  --color-amber-border: #fed7aa;
+  --color-amber-text: #ea580c;
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --radius-card: 16px;
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-card: var(--shadow);
   --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* -----------------------------------------------
+   Dark mode (.dark)
+----------------------------------------------- */
+.dark {
+  --bg: #1a1b2e;
+  --surface: #242538;
+  --surface-subtle: #2d2e45;
+  --border: #383a54;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #818cf8;
+  --accent-bg: rgba(129,140,248,0.12);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+
+  --btn-know-bg: rgba(34,197,94,0.1);
+  --btn-know-border: rgba(34,197,94,0.3);
+  --btn-know-text: #4ade80;
+
+  --btn-repeat-bg: rgba(249,115,22,0.1);
+  --btn-repeat-border: rgba(249,115,22,0.3);
+  --btn-repeat-text: #fb923c;
+
+  /* Legacy aliases */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-subtle);
+  --color-surface-highlight: var(--border);
+  --color-border: var(--border);
+  --color-border-subtle: var(--surface-subtle);
+  --color-indigo: var(--accent);
+  --color-indigo-light: var(--accent-bg);
+  --color-indigo-text: #a5b4fc;
+  --color-green: #4ade80;
+  --color-green-light: rgba(34,197,94,0.1);
+  --color-green-border: rgba(34,197,94,0.3);
+  --color-green-text: #4ade80;
+  --color-amber: #fb923c;
+  --color-amber-light: rgba(249,115,22,0.1);
+  --color-amber-border: rgba(249,115,22,0.3);
+  --color-amber-text: #fb923c;
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --shadow-card: var(--shadow);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
 }
 
 /* -----------------------------------------------
@@ -50,9 +112,10 @@ html {
 
 body {
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text-primary);
+  background: var(--bg);
+  color: var(--text-primary);
   min-height: 100vh;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* -----------------------------------------------
@@ -65,11 +128,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-indigo);
+  background: var(--accent);
 }
 
 /* -----------------------------------------------
@@ -96,38 +159,41 @@ body {
    Card surface
 ----------------------------------------------- */
 .card-surface {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .card-surface-front {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .card-surface-back {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 /* -----------------------------------------------
    Progress bar
 ----------------------------------------------- */
 .progress-bar-fill {
-  background: var(--color-indigo);
+  background: var(--accent);
   border-radius: 999px;
   height: 100%;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .progress-bar-known {
-  background: var(--color-green);
+  background: var(--btn-know-text);
   border-radius: 999px;
   height: 100%;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -137,15 +203,15 @@ body {
    Category card
 ----------------------------------------------- */
 .category-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
   transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .category-card:hover {
-  background: #fafbff;
-  box-shadow: var(--shadow-card-hover);
+  background: var(--surface-subtle);
+  box-shadow: var(--shadow);
   transform: translateY(-1px);
 }
 
@@ -153,7 +219,7 @@ body {
    Button styles
 ----------------------------------------------- */
 .btn-primary {
-  background: var(--color-indigo);
+  background: var(--accent);
   color: #fff;
   border-radius: 12px;
   font-weight: 600;
@@ -163,7 +229,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: #4338ca;
+  opacity: 0.9;
   box-shadow: 0 4px 12px rgba(79,70,229,0.35);
   transform: translateY(-1px);
 }
@@ -173,45 +239,43 @@ body {
 }
 
 .btn-know {
-  background: transparent;
-  border: 1.5px solid #16a34a;
-  color: #15803d;
+  background: var(--btn-know-bg);
+  border: 1.5px solid var(--btn-know-border);
+  color: var(--btn-know-text);
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.15s ease;
 }
 
 .btn-know:hover {
-  background: var(--color-green-light);
-  border-color: #16a34a;
+  filter: brightness(0.95);
   transform: translateY(-1px);
 }
 
 .btn-repeat {
-  background: transparent;
-  border: 1.5px solid #d97706;
-  color: #b45309;
+  background: var(--btn-repeat-bg);
+  border: 1.5px solid var(--btn-repeat-border);
+  color: var(--btn-repeat-text);
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.15s ease;
 }
 
 .btn-repeat:hover {
-  background: var(--color-amber-light);
-  border-color: #d97706;
+  filter: brightness(0.95);
   transform: translateY(-1px);
 }
 
 .btn-ghost {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   border-radius: 8px;
   font-weight: 500;
   transition: all 0.15s ease;
 }
 
 .btn-ghost:hover {
-  background: var(--color-surface-raised);
-  color: var(--color-text-primary);
+  background: var(--surface-subtle);
+  color: var(--text-primary);
 }
 
 .btn-ghost:disabled {
@@ -256,13 +320,13 @@ body {
    Status badge
 ----------------------------------------------- */
 .badge-know {
-  background: var(--color-green-light);
-  border: 1px solid var(--color-green-border);
-  color: var(--color-green-text);
+  background: var(--btn-know-bg);
+  border: 1px solid var(--btn-know-border);
+  color: var(--btn-know-text);
 }
 
 .badge-repeat {
-  background: var(--color-amber-light);
-  border: 1px solid var(--color-amber-border);
-  color: var(--color-amber-text);
+  background: var(--btn-repeat-bg);
+  border: 1px solid var(--btn-repeat-border);
+  color: var(--btn-repeat-text);
 }
