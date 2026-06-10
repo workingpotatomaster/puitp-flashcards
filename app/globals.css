@@ -1,7 +1,268 @@
 @import "tailwindcss";
 
+/* -----------------------------------------------
+   CSS Custom Properties — design tokens (light theme)
+----------------------------------------------- */
+:root {
+  --color-bg: #f8f9fc;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f3f4f6;
+  --color-surface-highlight: #e5e7eb;
+
+  --color-border: #e5e7eb;
+  --color-border-subtle: #f3f4f6;
+
+  --color-indigo: #4f46e5;
+  --color-indigo-light: #eef2ff;
+  --color-indigo-text: #4338ca;
+
+  --color-green: #16a34a;
+  --color-green-light: #dcfce7;
+  --color-green-border: #bbf7d0;
+  --color-green-text: #15803d;
+
+  --color-amber: #d97706;
+  --color-amber-light: #fef3c7;
+  --color-amber-border: #fde68a;
+  --color-amber-text: #b45309;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+
+  --radius-card: 16px;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* -----------------------------------------------
+   Base reset & typography
+----------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f8f9fc;
-  color: #1a1a2e;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+}
+
+/* -----------------------------------------------
+   Scrollbar styling
+----------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-indigo);
+}
+
+/* -----------------------------------------------
+   Flip card 3D utilities
+----------------------------------------------- */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* -----------------------------------------------
+   Card surface
+----------------------------------------------- */
+.card-surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.card-surface-front {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.card-surface-back {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* -----------------------------------------------
+   Progress bar
+----------------------------------------------- */
+.progress-bar-fill {
+  background: var(--color-indigo);
+  border-radius: 999px;
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-known {
+  background: var(--color-green);
+  border-radius: 999px;
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -----------------------------------------------
+   Category card
+----------------------------------------------- */
+.category-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.category-card:hover {
+  background: #fafbff;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* -----------------------------------------------
+   Button styles
+----------------------------------------------- */
+.btn-primary {
+  background: var(--color-indigo);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(79,70,229,0.25);
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+  box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-know {
+  background: transparent;
+  border: 1.5px solid #16a34a;
+  color: #15803d;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn-know:hover {
+  background: var(--color-green-light);
+  border-color: #16a34a;
+  transform: translateY(-1px);
+}
+
+.btn-repeat {
+  background: transparent;
+  border: 1.5px solid #d97706;
+  color: #b45309;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn-repeat:hover {
+  background: var(--color-amber-light);
+  border-color: #d97706;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  color: var(--color-text-secondary);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary);
+}
+
+.btn-ghost:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------------
+   Completion screen animation
+----------------------------------------------- */
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.animate-fade-up-delay-1 {
+  opacity: 0;
+  animation: fadeUp 0.5s ease 0.15s forwards;
+}
+
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 0.5s ease 0.3s forwards;
+}
+
+/* -----------------------------------------------
+   Status badge
+----------------------------------------------- */
+.badge-know {
+  background: var(--color-green-light);
+  border: 1px solid var(--color-green-border);
+  color: var(--color-green-text);
+}
+
+.badge-repeat {
+  background: var(--color-amber-light);
+  border: 1px solid var(--color-amber-border);
+  color: var(--color-amber-text);
 }

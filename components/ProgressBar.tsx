@@ -10,20 +10,89 @@ export default function ProgressBar({ current, total, known }: Props) {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between text-sm text-gray-500 mb-1.5">
-        <span>
-          {current} / {total}
-        </span>
+      {/* Stats row */}
+      <div className="flex items-center justify-between mb-2.5">
+        <div className="flex items-center gap-2">
+          <span
+            className="text-xs font-semibold tabular-nums"
+            style={{ color: "var(--color-text-secondary)" }}
+          >
+            {current}
+          </span>
+          <span
+            className="text-xs"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            /
+          </span>
+          <span
+            className="text-xs font-medium tabular-nums"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            {total}
+          </span>
+          <span
+            className="text-xs px-2 py-0.5 rounded-full tabular-nums ml-1"
+            style={{
+              background: "#eef2ff",
+              border: "1px solid #c7d2fe",
+              color: "#4338ca",
+            }}
+          >
+            {pct}%
+          </span>
+        </div>
+
         {known > 0 && (
-          <span className="text-green-600 font-medium">✓ {known} znam ({knownPct}%)</span>
+          <div
+            className="flex items-center gap-1.5 text-xs font-medium"
+            style={{ color: "#15803d" }}
+          >
+            <span
+              className="inline-flex w-4 h-4 items-center justify-center rounded-full text-[10px] font-bold"
+              style={{
+                background: "#dcfce7",
+                border: "1px solid #bbf7d0",
+                color: "#16a34a",
+              }}
+            >
+              ✓
+            </span>
+            <span className="tabular-nums">{known} znam</span>
+            <span style={{ color: "var(--color-text-muted)" }}>({knownPct}%)</span>
+          </div>
         )}
       </div>
-      <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+
+      {/* Main track */}
+      <div
+        className="w-full rounded-full overflow-hidden"
+        style={{
+          height: "6px",
+          background: "var(--color-surface-highlight)",
+        }}
+      >
         <div
-          className="h-full bg-indigo-400 rounded-full transition-all duration-300"
+          className="progress-bar-fill"
           style={{ width: `${pct}%` }}
         />
       </div>
+
+      {/* Known overlay bar */}
+      {known > 0 && (
+        <div
+          className="w-full rounded-full overflow-hidden mt-1.5"
+          style={{
+            height: "3px",
+            background: "var(--color-surface-highlight)",
+          }}
+        >
+          <div
+            className="progress-bar-known"
+            style={{ width: `${knownPct}%` }}
+          />
+        </div>
+      )}
     </div>
   );
 }
