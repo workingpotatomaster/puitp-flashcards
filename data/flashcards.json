@@ -1,0 +1,380 @@
+[
+  {
+    "id": 1,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Parafraza",
+    "back": "Odtworzenie myśli i uczuć rozmówcy własnymi słowami. Potwierdza słuchanie i weryfikuje poprawność rozumienia. Nie naśladuj, nie powtarzaj dokładnych sformułowań. Zacznij od: 'Ważne dla Ciebie jest...', 'Myślisz...', 'Uważasz...'"
+  },
+  {
+    "id": 2,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Klaryfikacja",
+    "back": "Sygnalizowanie braku pełnego rozumienia przy chęci jak najlepszego zrozumienia. Pozwala zwiększyć precyzję informacji i wyjaśnić niejasności. Przykład: 'Co masz na myśli mówiąc, że masz tego wszystkiego dość?'"
+  },
+  {
+    "id": 3,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Odzwierciedlenie",
+    "back": "Komunikowanie zrozumienia dla emocjonalnych reakcji rozmówcy. Koncentruje uwagę na emocjach. Zachęca do wyrażania uczuć (również dotąd nieaprobowanych). Pomaga w rozróżnieniu uczuć mieszanych. Przykład: 'To musiało być dla Ciebie trudne.'"
+  },
+  {
+    "id": 4,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Minimalna reakcja werbalna",
+    "back": "Zachęca do kontynuowania wypowiedzi, potwierdza uwagę skierowaną na rozmówcę i jego wypowiedź. Przykłady: mmm, mh, rozumiem, tak... Nie przerywa, ale sygnalizuje aktywne słuchanie."
+  },
+  {
+    "id": 5,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Prośba o rozwinięcie tematu",
+    "back": "Pozwala pogłębić omawiany wątek. Jest mało zagrażająca dla rozmówcy i zachęca go do kontynuowania. Przykład: 'Proszę mi coś więcej opowiedzieć na temat...', 'Czy mógłby Pan podać jakiś przykład ilustrujący to, co Pan mówi?'"
+  },
+  {
+    "id": 6,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "5 typów interwencji werbalnych (w kolejności)",
+    "back": "1. Minimalna reakcja werbalna\n2. Prośba o rozwinięcie tematu\n3. Parafraza\n4. Klaryfikacja\n5. Odzwierciedlenie"
+  },
+  {
+    "id": 7,
+    "category": "Aktywne słuchanie",
+    "source": "PDF 1",
+    "front": "Elementy kontaktu/relacji terapeutycznej",
+    "back": "• Komunikaty sygnalizujące zainteresowanie i zrozumienie\n• Akceptacja i zrozumienie dla sposobu emocjonalnego przeżywania sytuacji przez klienta\n• Utrzymywanie kontaktu wzrokowego\n• Adekwatna ilość interwencji werbalnych"
+  },
+  {
+    "id": 8,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Emocje podstawowe – funkcje (8 emocji)",
+    "back": "• Złość – naruszenie granic, spotykamy przeszkodę\n• Strach – zagrożenie, pobudza do ucieczki lub ochrony\n• Smutek – strata, skłania do wycofania i refleksji\n• Radość – zaspokojenie potrzeb, motywuje do powtarzania działań\n• Zainteresowanie – ciekawość, popycha do eksploracji\n• Wstręt – chroni przed tym, co może zaszkodzić\n• Pogarda – naruszenie wartości lub norm\n• Zaskoczenie – coś nowego, zwiększa czujność"
+  },
+  {
+    "id": 9,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Zdrowa regulacja emocji",
+    "back": "Chodzi o to, aby emocję otworzyć, przeczytać i zareagować w sposób, który zaspokaja naszą potrzebę – bez krzywdzenia siebie czy innych. Każda emocja niesie informację o nas i o tym, co dla nas ważne."
+  },
+  {
+    "id": 10,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Technika uwalniania emocji (Hawkins – Letting Go)",
+    "back": "Technika pracy z emocjami wg Davida R. Hawkinsa. Zamiast tłumić lub wybuchać – pozwolić emocji przepłynąć.\n4 kroki:\n1. Zauważ emocję w ciele (napięcie, szybkie bicie serca)\n2. Pozwól jej być – nie próbuj jej zlikwidować\n3. Oddychaj spokojnie, rozluźniaj ciało\n4. Obserwuj, aż emocja naturalnie opadnie"
+  },
+  {
+    "id": 11,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Tłumienie złości – błędne koło",
+    "back": "Tłumienie złości → samoobwinianie → frustracja podstawowych potrzeb psychologicznych → symptomy depresji → jeszcze więcej tłumionej złości. Efekt: narastająca depresyjność i niemożność autentycznego wyrażania emocji."
+  },
+  {
+    "id": 12,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Podobieństwo techniki Hawkinsa do mindfulness",
+    "back": "Obie metody opierają się na:\n• Akceptacji emocji\n• Obserwacji bez oceny\n• Redukcji oporu wobec trudnych przeżyć\nEfekty mindfulness: mniej stresu i objawów depresyjnych, więcej elastyczności poznawczej i dobrostanu."
+  },
+  {
+    "id": 13,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Podstawowe założenie CBT",
+    "back": "Nie sytuacja sama w sobie, ale jej interpretacja (myśl) wpływa na emocje i zachowanie. Schemat: zdarzenie → myśl → emocja → zachowanie. Kluczowe: to interpretacja, a nie fakt, wywołuje reakcję emocjonalną."
+  },
+  {
+    "id": 14,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Model ABC (Ellis)",
+    "back": "A – Activating Event (wydarzenie aktywujące)\nB – Beliefs (przekonania/myśli)\nC – Consequences (konsekwencje: emocje i zachowania)\n\nZadanie terapeutyczne: zastąpienie myśli B inną i obserwacja nowych konsekwencji C."
+  },
+  {
+    "id": 15,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "3 poziomy poznawcze w CBT",
+    "back": "1. Myśli automatyczne – szybkie, spontaniczne interpretacje sytuacji\n2. Przekonania pośrednie – reguły i założenia warunkowe, np. 'jeśli nie jestem perfekcyjna, to zawiodłam'\n3. Przekonania kluczowe (core beliefs) – głębokie przekonania o sobie, świecie i innych"
+  },
+  {
+    "id": 16,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Przekonania kluczowe (core beliefs)",
+    "back": "Stabilne przekonania o sobie, świecie i innych, często ukształtowane w dzieciństwie. Wpływają na myśli automatyczne. Przykłady:\n• 'Jestem niekompetentna'\n• 'Inni mnie odrzucą'\n• 'Świat jest niebezpieczny'"
+  },
+  {
+    "id": 17,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Błędne koło w CBT",
+    "back": "Zniekształcone myśli → unikanie → zachowania zabezpieczające → brak korekty doświadczeniem → podtrzymanie zniekształceń. Problemy psychiczne utrzymują się przez brak nowych, korygujących doświadczeń."
+  },
+  {
+    "id": 18,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Zniekształcenia poznawcze (5 przykładów)",
+    "back": "Typowe błędy w myśleniu:\n• Katastrofizacja – zakładanie najgorszego scenariusza\n• Myślenie czarno-białe – wszystko albo nic\n• Czytanie w myślach – zakładam, co inni myślą\n• Selektywna uwaga – skupiam się tylko na negatywnych informacjach\n• Nadgeneralizacja – jeden incydent = reguła ogólna"
+  },
+  {
+    "id": 19,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Model zmiany w CBT (3 drogi)",
+    "back": "1. Restrukturyzacja poznawcza – identyfikacja i zmiana myśli\n2. Eksperymenty behawioralne – testowanie przekonań w praktyce\n3. Ekspozycja – konfrontacja z unikanym bodźcem"
+  },
+  {
+    "id": 20,
+    "category": "CBT – podstawy",
+    "source": "PDF 2",
+    "front": "Rola zachowania w CBT",
+    "back": "Zachowanie ma kluczowe znaczenie w CBT:\n• Unikanie utrwala lęk\n• Ekspozycja osłabia lęk\n• Nowe doświadczenia korygują przekonania\nCBT opiera się na uczeniu: klasyczne warunkowanie (reakcje emocjonalne) i warunkowanie sprawcze (wzmocnienia/kary)."
+  },
+  {
+    "id": 21,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "ACT – podstawowe założenie (vs CBT)",
+    "back": "Acceptance and Commitment Therapy (Steven C. Hayes). Przesuwa terapię z modelu 'redukuj objawy, eliminuj lęk, zmieniaj myśli' na model 'zwiększ psychologiczną elastyczność, nawet jeśli objawy pozostają'. Pytanie ACT: 'Czy ta relacja z myślą pomaga mi żyć wartościowo?' zamiast 'Czy ta myśl jest prawdziwa?'"
+  },
+  {
+    "id": 22,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Paradoks unikania (ACT)",
+    "back": "Im bardziej unikamy emocji, tym silniejsze się stają. Cierpienie nie wynika z tego, co czujemy, ale z prób kontroli tego, co czujemy – kosztem życia, które jest dla nas ważne. Próba eliminacji dyskomfortu blokuje działanie zgodne z wartościami."
+  },
+  {
+    "id": 23,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Czteropolówka ACT",
+    "back": "Narzędzie ACT pokazujące, jak radzimy sobie z wyzwaniami:\n• Góra-lewo: unikanie/kontrola doświadczeń (ruchy 'od')\n• Góra-prawo: działanie w stronę wartości (ruchy 'ku')\n• Dół-lewo: wewnętrzne doświadczenia (TIMES)\n• Dół-prawo: zachowania (co robię lub czego unikam)\nUżywana do analizy kosztu strategii unikowych."
+  },
+  {
+    "id": 24,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "TIMES (ACT)",
+    "back": "Akronim opisujący wewnętrzne doświadczenia mogące utrudniać działanie zgodne z wartościami:\nT – Thoughts (myśli)\nI – Images (obrazy wyobrażeniowe)\nM – Memories (wspomnienia)\nE – Emotions (emocje)\nS – Sensations (doznania z ciała)"
+  },
+  {
+    "id": 25,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Wartości w ACT (cechy charakterystyczne)",
+    "back": "• Odzwierciedlają pragnienia, nie wymagania\n• Są osobiste (nie z oczekiwań innych)\n• Motywują działanie\n• Wyznaczają kierunek, nie punkt końcowy\n• Są zawsze dostępne w teraźniejszości\n• Można je realizować w działaniu tu i teraz\n• W odróżnieniu od celów – nie trzeba na nie czekać"
+  },
+  {
+    "id": 26,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Kontrola awersyjna vs apetytywna",
+    "back": "Awersyjna: zachowanie ukierunkowane na oddalenie się od nieprzyjemnego (ucieczka/unikanie bodźca awersyjnego).\nApetytywna: zachowanie ukierunkowane ku temu, co pożądane (zbliżanie się do wartości/celów – bodziec apetytywny)."
+  },
+  {
+    "id": 27,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Ja obserwujące (ACT)",
+    "back": "Perspektywa obserwatora w ACT:\n• Kontakt z chwilą obecną – bycie tu i teraz\n• 'Helicopter view' – szersza perspektywa na własne doświadczenia\n• Oddzielenie od treści – nie utożsamiam się z myślami, emocjami czy wspomnieniami\n• Pozwala obserwować bez oceniania i bez automatycznego reagowania"
+  },
+  {
+    "id": 28,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "TIMES jako technika przejścia 'od' do 'ku' (ACT)",
+    "back": "T – Toward move (konkretny ruch ku wartościom)\nI – Important (co jest ważne w tej sytuacji?)\nM – Mindful (czy mogę to zrobić uważnie?)\nE – Effective (czy to działa w długiej perspektywie?)\nS – Small/Specific (czy krok jest wystarczająco mały i konkretny?)"
+  },
+  {
+    "id": 29,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Zasada 'Nie ma C, nie ma terapii'",
+    "back": "Przed rozpoczęciem terapii CBT klient musi mieć zidentyfikowaną konsekwencję (C w modelu ABC), która:\n• Stanowi dla niego rzeczywisty problem\n• Motywuje do poszukiwania terapeuty i podjęcia terapii\n• Bez tego – brak motywacji do zmiany i brak punktu wyjścia."
+  },
+  {
+    "id": 30,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "4 kroki od problemu do celu terapeutycznego",
+    "back": "1. Zapisz skargę pacjenta jego słowami (zidentyfikuj C)\n2. Znajdź ukrytą potrzebę (klaryfikacja, pytanie o cud, pytanie 'dlaczego teraz?')\n3. Zamień 'nie chcę X' na 'chcę potrafić Y' (cel pozytywny)\n4. Uczyń cel konkretnym (kiedy, gdzie, po czym widać zmianę)"
+  },
+  {
+    "id": 31,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Kryteria dobrego celu terapeutycznego",
+    "back": "Cel powinien być:\n• Pozytywny – opisuje obecność czegoś, nie brak (nie 'chcę przestać się stresować', lecz 'chcę lepiej regulować napięcie')\n• Możliwy do obserwacji – konkretne, mierzalne zachowanie\n• Konkretny – kiedy, gdzie, po czym widać zmianę\n• Ustalony wspólnie z klientem"
+  },
+  {
+    "id": 32,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Pytanie o cud",
+    "back": "Technika ustalania celu terapeutycznego. Pomaga znaleźć ukrytą potrzebę klienta. Przykłady:\n• 'Proszę sobie wyobrazić, że problem zniknął. Co byłoby wówczas możliwe?'\n• 'Czego chciał/a/by Pan/i zamiast tego?'"
+  },
+  {
+    "id": 33,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Pytanie o przełomową sytuację / bodziec wyzwalający",
+    "back": "Technika ustalania celu: 'Co skłoniło Pana/Panią do zgłoszenia się właśnie teraz?'\nUjawnia:\n• Bodziec wyzwalający (A w modelu ABC)\n• Aktualną motywację do zmiany\n• Kontekst, w jakim nasilił się problem"
+  },
+  {
+    "id": 34,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Czyja jest decyzja o celu terapii?",
+    "back": "Cel terapii jest ustalany wspólnie przez terapeutę i klienta – nie jest narzucany przez terapeutę. Klient musi być autorem swojego celu. Terapeuta pomaga go doprecyzować, uczynić mierzalnym i pozytywnym."
+  },
+  {
+    "id": 35,
+    "category": "Cele terapii",
+    "source": "PDF 3",
+    "front": "Schemat zamiany skargi na cel terapeutyczny",
+    "back": "Skarga → Cel\n• 'Ciągle się stresuję' → 'Chcę lepiej regulować napięcie w trudnych sytuacjach'\n• 'Nie umiem odmawiać' → 'Chcę komunikować granice spokojnie i bez poczucia winy'\n• 'Mam niską samoocenę' → 'Chcę budować bardziej realistyczny i życzliwy obraz siebie'\n• 'Boję się ludzi' → 'Chcę czuć się swobodniej w kontaktach społecznych'"
+  },
+  {
+    "id": 36,
+    "category": "Konceptualizacja",
+    "source": "PDF 3",
+    "front": "Konceptualizacja – 2 stopnie",
+    "back": "1. stopień – JAK? (ABC): Typowe automatyczne myśli, emocje i zachowania w sytuacjach problemowych. Testowanie hipotez 'jak problem funkcjonuje'\n2. stopień – DLACZEGO?: Schematy poznawcze, typowe wzorce reagowania w przeszłości i ich uwarunkowania (historia życia, przekonania kluczowe)"
+  },
+  {
+    "id": 37,
+    "category": "Konceptualizacja",
+    "source": "PDF 3",
+    "front": "Pytania przy konceptualizacji 1. stopnia (JAK?)",
+    "back": "Pytamy o konkretną, ostatnią sytuację dobrze ilustrującą problem klienta. Cel: zidentyfikowanie typowego ABC – automatycznej myśli (B), emocji i zachowania (C) w konkretnej sytuacji (A)."
+  },
+  {
+    "id": 38,
+    "category": "Konceptualizacja",
+    "source": "PDF 3",
+    "front": "Pytania przy konceptualizacji 2. stopnia (DLACZEGO?)",
+    "back": "Pytamy o historię: 'Czy to, co Pana/Panią spotyka, od dawna stanowi problem?', 'Co mogło wpłynąć na ukształtowanie się takiej wizji siebie i innych?', 'Jak miał/a Pan/Pani wizję siebie jako dziecko?'\nCel: historia życia → schematy → przekonania kluczowe."
+  },
+  {
+    "id": 39,
+    "category": "Konceptualizacja",
+    "source": "PDF 3",
+    "front": "Skalowanie celów",
+    "back": "Ocena realizacji celu na skali 1–10. Umożliwia:\n• Mierzenie postępów terapii\n• Ustalenie punktu wyjścia\n• Monitorowanie zmian między sesjami\n• Konkretyzację celu (co oznacza np. 7/10?)"
+  },
+  {
+    "id": 40,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Aktywacja behawioralna",
+    "back": "Stopniowe angażowanie się w działania dające poczucie przyjemności, sensu lub osiągnięcia, mimo obniżonego nastroju lub braku motywacji.\nCel: przerwanie wycofania i bierności, zwiększenie pozytywnych doświadczeń, odbudowa sprawczości.\nZasada: motywacja następuje po działaniu, nie przed nim."
+  },
+  {
+    "id": 41,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Mechanizm aktywacji behawioralnej (błędne koło i jego odwrócenie)",
+    "back": "Błędne koło depresji: depresja → wycofanie → mniej nagród i kontaktów → gorszy nastrój → jeszcze większe wycofanie.\n\nAktywacja odwraca to: małe działania → więcej doświadczeń → poprawa energii/nastroju → większa aktywność."
+  },
+  {
+    "id": 42,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Eksperymenty behawioralne",
+    "back": "Celowe sprawdzenie w rzeczywistości, czy dane przekonanie lub przewidywanie jest prawdziwe. Jedna z najbardziej charakterystycznych technik CBT.\nCel: testowanie przekonań, zbieranie nowych doświadczeń, osłabianie zniekształceń poznawczych."
+  },
+  {
+    "id": 43,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "4-krokowa struktura eksperymentu behawioralnego",
+    "back": "1. Przekonanie/przewidywanie (np. 'Wszyscy mnie ocenią, jeśli zadam pytanie')\n2. Zaplanowany eksperyment (np. zadaj jedno pytanie podczas spotkania)\n3. Obserwacja wyniku (co faktycznie się stało?)\n4. Wnioski (nowe, bardziej adaptacyjne przekonanie)"
+  },
+  {
+    "id": 44,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Ekspozycja",
+    "back": "Stopniowe konfrontowanie się z sytuacjami, bodźcami, emocjami lub myślami, które wywołują lęk i są unikane. Podstawowa technika leczenia zaburzeń lękowych i OCD.\nCel: zmniejszenie unikania, habituacja, nauczenie mózgu, że sytuacja nie jest tak niebezpieczna jak przewiduje lęk."
+  },
+  {
+    "id": 45,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Rodzaje ekspozycji (4 typy)",
+    "back": "1. In vivo – konfrontacja w realnej sytuacji (np. wejście do sklepu)\n2. Wyobrażeniowa – konfrontacja w wyobraźni\n3. Interoceptywna – na objawy z ciała (np. wywołanie lekkiego przyspieszenia oddechu)\n4. ERP (Ekspozycja z powstrzymaniem reakcji) – stosowana w OCD: zetknięcie z bodźcem obsesyjnym + powstrzymanie kompulsji"
+  },
+  {
+    "id": 46,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Habituacja",
+    "back": "Mechanizm leżący u podstaw ekspozycji. Oswajanie układu nerwowego z bodźcem lękowym przez powtarzaną ekspozycję – reakcja lękowa stopniowo się zmniejsza, gdy mózg uczy się, że bodziec nie jest tak niebezpieczny."
+  },
+  {
+    "id": 47,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Oddech 4–6",
+    "back": "Technika oddechowa zmniejszająca napięcie:\nWdech przez 4 sekundy → wydech przez 6 sekund.\nDłuższy wydech pobudza układ przywspółczulny (relaksacja). Stosowana przy silnym stresie i przy napadach lęku."
+  },
+  {
+    "id": 48,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Plan STOP",
+    "back": "Technika radzenia sobie przy przeciążeniu emocjonalnym:\nS – Zatrzymaj się\nT – Obserwuj (co się dzieje?)\nO – Przeanalizuj (co czuję, co myślę?)\nP – Podejmij świadome działanie (zamiast reagować automatycznie)"
+  },
+  {
+    "id": 49,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Ćwiczenie umiejętności radzenia sobie z objawami/stresem",
+    "back": "Uczenie konkretnych strategii regulacji emocji, stresu i objawów psychicznych. Mogą obejmować:\n• Techniki oddechowe (np. 4-6)\n• Progresywna relaksacja mięśni\n• Planowanie działań\n• Mindfulness\n• Rozwiązywanie problemów\n• Trening asertywności\n• Regulacja snu\n• Plan alarmowy przy nawrotach"
+  },
+  {
+    "id": 50,
+    "category": "Techniki behawioralne",
+    "source": "PDF 4",
+    "front": "Psychoedukacja klientów",
+    "back": "Informowanie klientów o mechanizmach ich problemu (np. jak działa lęk paniczny, depresja, błędne koło unikania). Cel: zrozumienie przez klienta, dlaczego konkretne techniki mogą pomóc, co zwiększa motywację i współpracę terapeutyczną."
+  },
+  {
+    "id": 51,
+    "category": "CBT – podstawy",
+    "source": "PDF 1 + 2",
+    "front": "Czym różni się parafraza od odzwierciedlenia?",
+    "back": "Parafraza – koncentruje się na treści (myślach, faktach) wypowiedzi rozmówcy.\nOdzwierciedlenie – koncentruje się na emocjach zawartych w wypowiedzi lub jej towarzyszących.\nObie potwierdzają słuchanie, ale odzwierciedlenie sięga głębiej do poziomu uczuciowego."
+  },
+  {
+    "id": 52,
+    "category": "Konceptualizacja",
+    "source": "PDF 3",
+    "front": "Lista celów terapeutycznych",
+    "back": "Narzędzie używane w CBT: lista problemów klienta z priorytetyzacją. Klient ocenia, które problemy są dla niego najbardziej dotkliwe i na których chce się skupić w pierwszej kolejności. Pozwala zaplanować kolejność pracy terapeutycznej."
+  },
+  {
+    "id": 53,
+    "category": "ACT",
+    "source": "PDF 2",
+    "front": "Funkcja vs forma zachowania (ACT)",
+    "back": "To samo zachowanie może pełnić różne funkcje psychologiczne.\nTa sama funkcja może być realizowana różnymi zachowaniami.\nDeklarowana motywacja nie zawsze odpowiada rzeczywistej funkcji zachowania.\nW ACT kluczowe jest pytanie o funkcję (czy to unikanie czy zbliżanie do wartości?), nie o formę."
+  },
+  {
+    "id": 54,
+    "category": "Regulacja emocji",
+    "source": "PDF 1",
+    "front": "Czym różni się tłumienie złości od jej regulacji?",
+    "back": "Tłumienie – emocja jest blokowana, nie jest przeżywana, ale nie znika – zmienia formę lub narasta (ryzyko wybuchu, błędne koło z depresją).\nRegulacja – emocja jest rozpoznana, przeżyta i wyrażona w sposób zaspokajający potrzebę bez krzywdzenia siebie lub innych. Technika Hawkinsa pomaga w regulacji, nie tłumieniu."
+  }
+]
